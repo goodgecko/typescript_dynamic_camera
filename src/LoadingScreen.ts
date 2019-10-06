@@ -7,12 +7,14 @@ export class LoadingScreen{
      */
     constructor(private app, private callback:Function){
         PIXI.loader
-            .add("antblack", "assets/player1.png")
-            .add("antpurple", "assets/player2.png")
+            .add("player1", "assets/player1.png")
+            .add("player2", "assets/player2.png")
             .add("field", "assets/field.png")
             .on("progress", this.handleLoadProgress.bind(this))
             .once("load", this.handleLoadComplete.bind(this))
             .once("error", this.handleLoadError.bind(this));
+
+        PIXI.loader.load()
     }
 
     private handleLoadProgress() {

@@ -60,13 +60,13 @@ export class GameScreen {
         this.app.stage.addChild(this.playerContainer2);
 
         //create player sprites and add them to their relevant containers
-        this.player1 = new PIXI.Sprite(Texture.from("antblack"));
+        this.player1 = new PIXI.Sprite(Texture.from("player1"));
         this.player1.anchor.set(.5, .5);
         this.player1.x = app.screen.width * .45;
         this.player1.y = app.screen.height * .5;
         this.playerContainer1.addChild(this.player1);
 
-        this.player2 = new PIXI.Sprite(Texture.from("antpurple"));
+        this.player2 = new PIXI.Sprite(Texture.from("player2"));
         this.player2.anchor.set(.5, .5);
         this.player2.x = app.screen.width * .55;
         this.player2.y = app.screen.height * .5;

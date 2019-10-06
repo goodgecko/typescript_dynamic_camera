@@ -485,7 +485,7 @@ Object.defineProperty(exports, 'glCore', {
   }
 });
 
-var _Bounds = __webpack_require__(27);
+var _Bounds = __webpack_require__(26);
 
 Object.defineProperty(exports, 'Bounds', {
   enumerable: true,
@@ -530,7 +530,7 @@ Object.defineProperty(exports, 'TransformStatic', {
   }
 });
 
-var _TransformBase = __webpack_require__(29);
+var _TransformBase = __webpack_require__(28);
 
 Object.defineProperty(exports, 'TransformBase', {
   enumerable: true,
@@ -539,7 +539,7 @@ Object.defineProperty(exports, 'TransformBase', {
   }
 });
 
-var _Sprite = __webpack_require__(31);
+var _Sprite = __webpack_require__(30);
 
 Object.defineProperty(exports, 'Sprite', {
   enumerable: true,
@@ -674,7 +674,7 @@ Object.defineProperty(exports, 'BaseTexture', {
   }
 });
 
-var _RenderTexture = __webpack_require__(34);
+var _RenderTexture = __webpack_require__(33);
 
 Object.defineProperty(exports, 'RenderTexture', {
   enumerable: true,
@@ -804,7 +804,7 @@ var _utils = __webpack_require__(2);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _ticker = __webpack_require__(33);
+var _ticker = __webpack_require__(32);
 
 var ticker = _interopRequireWildcard(_ticker);
 
@@ -879,7 +879,7 @@ var _mixin = __webpack_require__(110);
 
 var mixins = _interopRequireWildcard(_mixin);
 
-var _ismobilejs = __webpack_require__(28);
+var _ismobilejs = __webpack_require__(27);
 
 var isMobile = _interopRequireWildcard(_ismobilejs);
 
@@ -891,7 +891,7 @@ var _mapPremultipliedBlendModes = __webpack_require__(112);
 
 var _mapPremultipliedBlendModes2 = _interopRequireDefault(_mapPremultipliedBlendModes);
 
-var _earcut = __webpack_require__(30);
+var _earcut = __webpack_require__(29);
 
 var _earcut2 = _interopRequireDefault(_earcut);
 
@@ -1580,7 +1580,7 @@ exports.default = {
 
 exports.__esModule = true;
 
-var _Point = __webpack_require__(23);
+var _Point = __webpack_require__(22);
 
 Object.defineProperty(exports, 'Point', {
   enumerable: true,
@@ -1598,7 +1598,7 @@ Object.defineProperty(exports, 'ObservablePoint', {
   }
 });
 
-var _Matrix = __webpack_require__(24);
+var _Matrix = __webpack_require__(23);
 
 Object.defineProperty(exports, 'Matrix', {
   enumerable: true,
@@ -1643,7 +1643,7 @@ Object.defineProperty(exports, 'Polygon', {
   }
 });
 
-var _Rectangle = __webpack_require__(25);
+var _Rectangle = __webpack_require__(24);
 
 Object.defineProperty(exports, 'Rectangle', {
   enumerable: true,
@@ -3055,7 +3055,7 @@ var _determineCrossOrigin = __webpack_require__(52);
 
 var _determineCrossOrigin2 = _interopRequireDefault(_determineCrossOrigin);
 
-var _bitTwiddle = __webpack_require__(32);
+var _bitTwiddle = __webpack_require__(31);
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -5023,7 +5023,7 @@ exports.default = Shader;
 /* eslint-disable no-undef */
 
 var Loader = __webpack_require__(176).Loader;
-var Resource = __webpack_require__(36).Resource;
+var Resource = __webpack_require__(35).Resource;
 var async = __webpack_require__(83);
 var b64 = __webpack_require__(84);
 
@@ -7313,124 +7313,6 @@ function buildNativeLine(graphicsData, webGLData) {
 
 /***/ }),
 /* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-exports.__esModule = true;
-exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
-
-var _polyfill = __webpack_require__(91);
-
-Object.keys(_polyfill).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _polyfill[key];
-        }
-    });
-});
-
-var _core = __webpack_require__(1);
-
-Object.keys(_core).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _core[key];
-        }
-    });
-});
-
-var _deprecation = __webpack_require__(153);
-
-var _deprecation2 = _interopRequireDefault(_deprecation);
-
-var _accessibility = __webpack_require__(154);
-
-var accessibility = _interopRequireWildcard(_accessibility);
-
-var _extract = __webpack_require__(156);
-
-var extract = _interopRequireWildcard(_extract);
-
-var _extras = __webpack_require__(70);
-
-var extras = _interopRequireWildcard(_extras);
-
-var _filters = __webpack_require__(166);
-
-var filters = _interopRequireWildcard(_filters);
-
-var _interaction = __webpack_require__(173);
-
-var interaction = _interopRequireWildcard(_interaction);
-
-var _loaders = __webpack_require__(175);
-
-var loaders = _interopRequireWildcard(_loaders);
-
-var _mesh = __webpack_require__(179);
-
-var mesh = _interopRequireWildcard(_mesh);
-
-var _particles = __webpack_require__(184);
-
-var particles = _interopRequireWildcard(_particles);
-
-var _prepare = __webpack_require__(189);
-
-var prepare = _interopRequireWildcard(_prepare);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// export core
-_core.utils.mixins.performMixins();
-
-/**
- * Alias for {@link PIXI.loaders.shared}.
- * @name loader
- * @memberof PIXI
- * @type {PIXI.loader.Loader}
- */
-
-
-// handle mixins now, after all code has been added, including deprecation
-
-
-// export libs
-// import polyfills. Done as an export to make sure polyfills are imported first
-var loader = loaders.shared || null;
-
-exports.accessibility = accessibility;
-exports.extract = extract;
-exports.extras = extras;
-exports.filters = filters;
-exports.interaction = interaction;
-exports.loaders = loaders;
-exports.mesh = mesh;
-exports.particles = particles;
-exports.prepare = prepare;
-exports.loader = loader;
-
-// Apply the deprecations
-
-if (typeof _deprecation2.default === 'function') {
-    (0, _deprecation2.default)(exports);
-}
-
-// Always export PixiJS globally.
-global.PIXI = exports; // eslint-disable-line
-//# sourceMappingURL=index.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(22)))
-
-/***/ }),
-/* 22 */
 /***/ (function(module, exports) {
 
 var g;
@@ -7456,7 +7338,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7552,7 +7434,7 @@ exports.default = Point;
 //# sourceMappingURL=Point.js.map
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7562,7 +7444,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Point = __webpack_require__(23);
+var _Point = __webpack_require__(22);
 
 var _Point2 = _interopRequireDefault(_Point);
 
@@ -8074,7 +7956,7 @@ exports.default = Matrix;
 //# sourceMappingURL=Matrix.js.map
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8343,7 +8225,7 @@ exports.default = Rectangle;
 //# sourceMappingURL=Rectangle.js.map
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports) {
 
 
@@ -8395,7 +8277,7 @@ module.exports = mapType;
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8743,7 +8625,7 @@ exports.default = Bounds;
 //# sourceMappingURL=Bounds.js.map
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){var n=/iPhone/i,t=/iPod/i,r=/iPad/i,a=/\bAndroid(?:.+)Mobile\b/i,p=/Android/i,b=/\bAndroid(?:.+)SD4930UR\b/i,l=/\bAndroid(?:.+)(?:KF[A-Z]{2,4})\b/i,f=/Windows Phone/i,s=/\bWindows(?:.+)ARM\b/i,u=/BlackBerry/i,c=/BB10/i,h=/Opera Mini/i,v=/\b(CriOS|Chrome)(?:.+)Mobile/i,w=/Mobile(?:.+)Firefox\b/i;function m(e,i){return e.test(i)}function i(e){var i=e||("undefined"!=typeof navigator?navigator.userAgent:""),o=i.split("[FBAN");void 0!==o[1]&&(i=o[0]),void 0!==(o=i.split("Twitter"))[1]&&(i=o[0]);var d={apple:{phone:m(n,i)&&!m(f,i),ipod:m(t,i),tablet:!m(n,i)&&m(r,i)&&!m(f,i),device:(m(n,i)||m(t,i)||m(r,i))&&!m(f,i)},amazon:{phone:m(b,i),tablet:!m(b,i)&&m(l,i),device:m(b,i)||m(l,i)},android:{phone:!m(f,i)&&m(b,i)||!m(f,i)&&m(a,i),tablet:!m(f,i)&&!m(b,i)&&!m(a,i)&&(m(l,i)||m(p,i)),device:!m(f,i)&&(m(b,i)||m(l,i)||m(a,i)||m(p,i))||m(/\bokhttp\b/i,i)},windows:{phone:m(f,i),tablet:m(s,i),device:m(f,i)||m(s,i)},other:{blackberry:m(u,i),blackberry10:m(c,i),opera:m(h,i),firefox:m(w,i),chrome:m(v,i),device:m(u,i)||m(c,i)||m(h,i)||m(w,i)||m(v,i)}};return d.any=d.apple.device||d.android.device||d.windows.device||d.other.device,d.phone=d.apple.phone||d.android.phone||d.windows.phone,d.tablet=d.apple.tablet||d.android.tablet||d.windows.tablet,d} true&&module.exports&&"undefined"==typeof window?module.exports=i: true&&module.exports&&"undefined"!=typeof window?(module.exports=i(),module.exports.isMobile=i): true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (e.isMobile=i()),
@@ -8752,7 +8634,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):undefined}(this);
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8844,7 +8726,7 @@ TransformBase.IDENTITY = new TransformBase();
 //# sourceMappingURL=TransformBase.js.map
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9527,7 +9409,7 @@ earcut.flatten = function (data) {
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10173,7 +10055,7 @@ exports.default = Sprite;
 //# sourceMappingURL=Sprite.js.map
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10384,7 +10266,7 @@ exports.nextCombination = function(v) {
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10469,7 +10351,7 @@ exports.Ticker = _Ticker2.default;
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10628,7 +10510,7 @@ exports.default = RenderTexture;
 //# sourceMappingURL=RenderTexture.js.map
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10667,7 +10549,7 @@ function createIndicesForQuads(size) {
 //# sourceMappingURL=createIndicesForQuads.js.map
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11921,7 +11803,7 @@ if (true) {
 //# sourceMappingURL=Resource.js.map
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12414,6 +12296,124 @@ function findTextStyle(item, queue) {
 //# sourceMappingURL=BasePrepare.js.map
 
 /***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+exports.__esModule = true;
+exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
+
+var _polyfill = __webpack_require__(91);
+
+Object.keys(_polyfill).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _polyfill[key];
+        }
+    });
+});
+
+var _core = __webpack_require__(1);
+
+Object.keys(_core).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _core[key];
+        }
+    });
+});
+
+var _deprecation = __webpack_require__(153);
+
+var _deprecation2 = _interopRequireDefault(_deprecation);
+
+var _accessibility = __webpack_require__(154);
+
+var accessibility = _interopRequireWildcard(_accessibility);
+
+var _extract = __webpack_require__(156);
+
+var extract = _interopRequireWildcard(_extract);
+
+var _extras = __webpack_require__(70);
+
+var extras = _interopRequireWildcard(_extras);
+
+var _filters = __webpack_require__(166);
+
+var filters = _interopRequireWildcard(_filters);
+
+var _interaction = __webpack_require__(173);
+
+var interaction = _interopRequireWildcard(_interaction);
+
+var _loaders = __webpack_require__(175);
+
+var loaders = _interopRequireWildcard(_loaders);
+
+var _mesh = __webpack_require__(179);
+
+var mesh = _interopRequireWildcard(_mesh);
+
+var _particles = __webpack_require__(184);
+
+var particles = _interopRequireWildcard(_particles);
+
+var _prepare = __webpack_require__(189);
+
+var prepare = _interopRequireWildcard(_prepare);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// export core
+_core.utils.mixins.performMixins();
+
+/**
+ * Alias for {@link PIXI.loaders.shared}.
+ * @name loader
+ * @memberof PIXI
+ * @type {PIXI.loader.Loader}
+ */
+
+
+// handle mixins now, after all code has been added, including deprecation
+
+
+// export libs
+// import polyfills. Done as an export to make sure polyfills are imported first
+var loader = loaders.shared || null;
+
+exports.accessibility = accessibility;
+exports.extract = extract;
+exports.extras = extras;
+exports.filters = filters;
+exports.interaction = interaction;
+exports.loaders = loaders;
+exports.mesh = mesh;
+exports.particles = particles;
+exports.prepare = prepare;
+exports.loader = loader;
+
+// Apply the deprecations
+
+if (typeof _deprecation2.default === 'function') {
+    (0, _deprecation2.default)(exports);
+}
+
+// Always export PixiJS globally.
+global.PIXI = exports; // eslint-disable-line
+//# sourceMappingURL=index.js.map
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(21)))
+
+/***/ }),
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12578,7 +12578,7 @@ exports.default = ObservablePoint;
 
 exports.__esModule = true;
 
-var _Matrix = __webpack_require__(24);
+var _Matrix = __webpack_require__(23);
 
 var _Matrix2 = _interopRequireDefault(_Matrix);
 
@@ -13258,7 +13258,7 @@ module.exports = compileProgram;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var mapType = __webpack_require__(26);
+var mapType = __webpack_require__(25);
 var mapSize = __webpack_require__(44);
 
 /**
@@ -13346,7 +13346,7 @@ module.exports = mapSize;
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var mapType = __webpack_require__(26);
+var mapType = __webpack_require__(25);
 var defaultValue = __webpack_require__(46);
 
 /**
@@ -13647,7 +13647,7 @@ var _Transform = __webpack_require__(51);
 
 var _Transform2 = _interopRequireDefault(_Transform);
 
-var _Bounds = __webpack_require__(27);
+var _Bounds = __webpack_require__(26);
 
 var _Bounds2 = _interopRequireDefault(_Bounds);
 
@@ -14330,7 +14330,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _math = __webpack_require__(4);
 
-var _TransformBase2 = __webpack_require__(29);
+var _TransformBase2 = __webpack_require__(28);
 
 var _TransformBase3 = _interopRequireDefault(_TransformBase2);
 
@@ -14547,7 +14547,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _math = __webpack_require__(4);
 
-var _TransformBase2 = __webpack_require__(29);
+var _TransformBase2 = __webpack_require__(28);
 
 var _TransformBase3 = _interopRequireDefault(_TransformBase2);
 
@@ -15537,7 +15537,7 @@ var _BaseTexture3 = _interopRequireDefault(_BaseTexture2);
 
 var _utils = __webpack_require__(2);
 
-var _ticker = __webpack_require__(33);
+var _ticker = __webpack_require__(32);
 
 var _const = __webpack_require__(0);
 
@@ -16009,7 +16009,7 @@ var _Container = __webpack_require__(10);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _RenderTexture = __webpack_require__(34);
+var _RenderTexture = __webpack_require__(33);
 
 var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
 
@@ -17023,7 +17023,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Matrix = __webpack_require__(24);
+var _Matrix = __webpack_require__(23);
 
 var _Matrix2 = _interopRequireDefault(_Matrix);
 
@@ -17194,7 +17194,7 @@ var _pixiGlCore = __webpack_require__(5);
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _createIndicesForQuads = __webpack_require__(35);
+var _createIndicesForQuads = __webpack_require__(34);
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
@@ -19078,7 +19078,7 @@ var _Container = __webpack_require__(10);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _ticker = __webpack_require__(33);
+var _ticker = __webpack_require__(32);
 
 var _settings = __webpack_require__(3);
 
@@ -21539,14 +21539,16 @@ module.exports = __webpack_require__(90);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var pixi_js_1 = __webpack_require__(21);
+var pixi_js_1 = __webpack_require__(37);
 var LoadingScreen_1 = __webpack_require__(193);
 var GameScreen_1 = __webpack_require__(194);
 var GameBoot = /** @class */ (function () {
+    /**
+     * entrance point into the game code
+     * creates the pixi instance, starts the loading screen, on complete start the game screen
+     */
     function GameBoot() {
-        this.app = new pixi_js_1.Application({
-            width: window.innerWidth, height: window.innerHeight
-        });
+        this.app = new pixi_js_1.Application({ width: window.innerWidth, height: window.innerHeight });
         document.body.appendChild(this.app.view);
         this.startLoadingScreen();
     }
@@ -21792,7 +21794,7 @@ if (!global.cancelAnimationFrame) {
     };
 }
 //# sourceMappingURL=requestAnimationFrame.js.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(21)))
 
 /***/ }),
 /* 95 */
@@ -21843,7 +21845,7 @@ if (!Number.isInteger) {
 
 exports.__esModule = true;
 
-var _Rectangle = __webpack_require__(25);
+var _Rectangle = __webpack_require__(24);
 
 var _Rectangle2 = _interopRequireDefault(_Rectangle);
 
@@ -21962,7 +21964,7 @@ exports.default = Circle;
 
 exports.__esModule = true;
 
-var _Rectangle = __webpack_require__(25);
+var _Rectangle = __webpack_require__(24);
 
 var _Rectangle2 = _interopRequireDefault(_Rectangle);
 
@@ -22089,7 +22091,7 @@ exports.default = Ellipse;
 
 exports.__esModule = true;
 
-var _Point = __webpack_require__(23);
+var _Point = __webpack_require__(22);
 
 var _Point2 = _interopRequireDefault(_Point);
 
@@ -23127,7 +23129,7 @@ module.exports = {
     generateUniformAccessObject: __webpack_require__(48),
     setPrecision: __webpack_require__(47),
     mapSize: __webpack_require__(44),
-    mapType: __webpack_require__(26)
+    mapType: __webpack_require__(25)
 };
 
 /***/ }),
@@ -23140,7 +23142,7 @@ module.exports = {
 exports.__esModule = true;
 exports.default = maxRecommendedTextures;
 
-var _ismobilejs = __webpack_require__(28);
+var _ismobilejs = __webpack_require__(27);
 
 var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
 
@@ -23920,7 +23922,7 @@ function mapPremultipliedBlendModes() {
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(114)(module), __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(114)(module), __webpack_require__(21)))
 
 /***/ }),
 /* 114 */
@@ -25281,7 +25283,7 @@ var _WebGLRenderer = __webpack_require__(18);
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
-var _createIndicesForQuads = __webpack_require__(35);
+var _createIndicesForQuads = __webpack_require__(34);
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
@@ -25307,7 +25309,7 @@ var _pixiGlCore = __webpack_require__(5);
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _bitTwiddle = __webpack_require__(32);
+var _bitTwiddle = __webpack_require__(31);
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -26484,7 +26486,7 @@ var _filterTransforms = __webpack_require__(130);
 
 var filterTransforms = _interopRequireWildcard(_filterTransforms);
 
-var _bitTwiddle = __webpack_require__(32);
+var _bitTwiddle = __webpack_require__(31);
 
 var _bitTwiddle2 = _interopRequireDefault(_bitTwiddle);
 
@@ -28187,7 +28189,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Sprite2 = __webpack_require__(31);
+var _Sprite2 = __webpack_require__(30);
 
 var _Sprite3 = _interopRequireDefault(_Sprite2);
 
@@ -28935,7 +28937,7 @@ var _Container2 = __webpack_require__(10);
 
 var _Container3 = _interopRequireDefault(_Container2);
 
-var _RenderTexture = __webpack_require__(34);
+var _RenderTexture = __webpack_require__(33);
 
 var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
 
@@ -28947,7 +28949,7 @@ var _GraphicsData = __webpack_require__(66);
 
 var _GraphicsData2 = _interopRequireDefault(_GraphicsData);
 
-var _Sprite = __webpack_require__(31);
+var _Sprite = __webpack_require__(30);
 
 var _Sprite2 = _interopRequireDefault(_Sprite);
 
@@ -28957,7 +28959,7 @@ var _utils = __webpack_require__(2);
 
 var _const = __webpack_require__(0);
 
-var _Bounds = __webpack_require__(27);
+var _Bounds = __webpack_require__(26);
 
 var _Bounds2 = _interopRequireDefault(_Bounds);
 
@@ -30846,7 +30848,7 @@ var _buildLine2 = _interopRequireDefault(_buildLine);
 
 var _utils = __webpack_require__(2);
 
-var _earcut = __webpack_require__(30);
+var _earcut = __webpack_require__(29);
 
 var _earcut2 = _interopRequireDefault(_earcut);
 
@@ -31012,7 +31014,7 @@ function buildRectangle(graphicsData, webGLData, webGLDataNativeLines) {
 exports.__esModule = true;
 exports.default = buildRoundedRectangle;
 
-var _earcut = __webpack_require__(30);
+var _earcut = __webpack_require__(29);
 
 var _earcut2 = _interopRequireDefault(_earcut);
 
@@ -33125,7 +33127,7 @@ var _core = __webpack_require__(1);
 
 var core = _interopRequireWildcard(_core);
 
-var _ismobilejs = __webpack_require__(28);
+var _ismobilejs = __webpack_require__(27);
 
 var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
 
@@ -39514,7 +39516,7 @@ var _async = __webpack_require__(83);
 
 var async = _interopRequireWildcard(_async);
 
-var _Resource = __webpack_require__(36);
+var _Resource = __webpack_require__(35);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -40440,7 +40442,7 @@ Resource.setExtensionXhrType('fnt', Resource.XHR_RESPONSE_TYPE.DOCUMENT);
 exports.__esModule = true;
 exports.blobMiddlewareFactory = blobMiddlewareFactory;
 
-var _Resource = __webpack_require__(36);
+var _Resource = __webpack_require__(35);
 
 var _b = __webpack_require__(84);
 
@@ -42650,7 +42652,7 @@ var _pixiGlCore = __webpack_require__(5);
 
 var _pixiGlCore2 = _interopRequireDefault(_pixiGlCore);
 
-var _createIndicesForQuads = __webpack_require__(35);
+var _createIndicesForQuads = __webpack_require__(34);
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
@@ -42918,7 +42920,7 @@ Object.defineProperty(exports, 'canvas', {
   }
 });
 
-var _BasePrepare = __webpack_require__(37);
+var _BasePrepare = __webpack_require__(36);
 
 Object.defineProperty(exports, 'BasePrepare', {
   enumerable: true,
@@ -42961,7 +42963,7 @@ var _core = __webpack_require__(1);
 
 var core = _interopRequireWildcard(_core);
 
-var _BasePrepare2 = __webpack_require__(37);
+var _BasePrepare2 = __webpack_require__(36);
 
 var _BasePrepare3 = _interopRequireDefault(_BasePrepare2);
 
@@ -43088,7 +43090,7 @@ var _core = __webpack_require__(1);
 
 var core = _interopRequireWildcard(_core);
 
-var _BasePrepare2 = __webpack_require__(37);
+var _BasePrepare2 = __webpack_require__(36);
 
 var _BasePrepare3 = _interopRequireDefault(_BasePrepare2);
 
@@ -43270,38 +43272,36 @@ exports.default = TimeLimiter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var pixi_js_1 = __webpack_require__(21);
 var LoadingScreen = /** @class */ (function () {
-    function LoadingScreen(stage, callback) {
-        this.stage = stage;
+    /**
+     * yep, you guessed it, loads in all the assets
+     * @param app pixi application - incase you want to add actual loading elements to the stage
+     * @param callback the function to call when the loading is complete
+     */
+    function LoadingScreen(app, callback) {
+        this.app = app;
         this.callback = callback;
-        this.loader = pixi_js_1.loaders.shared;
-        this.loader.add("antblack", "assets/antblack.png")
-            .add("antpurple", "assets/antpurple.png")
-            .add("earth", "assets/earth.png")
+        PIXI.loader
+            .add("player1", "assets/player1.png")
+            .add("player2", "assets/player2.png")
             .add("field", "assets/field.png")
             .on("progress", this.handleLoadProgress.bind(this))
-            .on("load", this.handleLoadAsset.bind(this))
-            .on("error", this.handleLoadError.bind(this))
-            .load(this.handleLoadComplete.bind(this));
+            .once("load", this.handleLoadComplete.bind(this))
+            .once("error", this.handleLoadError.bind(this));
+        PIXI.loader.load();
     }
-    LoadingScreen.prototype.handleLoadProgress = function (loader, resource) {
-        console.log(loader.progress + "% loaded");
-    };
-    LoadingScreen.prototype.handleLoadAsset = function (loader, resource) {
-        console.log("asset loaded " + resource.name);
+    LoadingScreen.prototype.handleLoadProgress = function () {
+        console.log(PIXI.loader.progress + "% loaded");
     };
     LoadingScreen.prototype.handleLoadError = function () {
         console.error("load error");
     };
     LoadingScreen.prototype.handleLoadComplete = function () {
         var _this = this;
+        PIXI.loader.removeAllListeners();
         setTimeout(function () {
             _this.callback();
-            _this.clean();
         }, 1000);
-    };
-    LoadingScreen.prototype.clean = function () {
     };
     return LoadingScreen;
 }());
@@ -43315,9 +43315,13 @@ exports.LoadingScreen = LoadingScreen;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var pixi_js_1 = __webpack_require__(21);
+var pixi_js_1 = __webpack_require__(37);
 var PlayerMovementControl_1 = __webpack_require__(195);
 var GameScreen = /** @class */ (function () {
+    /**
+     * main game class, creates two maps and two players then starts the gameLoop
+     * @param app pixi application
+     */
     function GameScreen(app) {
         var _this = this;
         this.app = app;
@@ -43343,12 +43347,12 @@ var GameScreen = /** @class */ (function () {
         this.playerContainer2 = new PIXI.Container();
         this.app.stage.addChild(this.playerContainer2);
         //create player sprites and add them to their relevant containers
-        this.player1 = new PIXI.Sprite(pixi_js_1.Texture.from("antblack"));
+        this.player1 = new PIXI.Sprite(pixi_js_1.Texture.from("player1"));
         this.player1.anchor.set(.5, .5);
         this.player1.x = app.screen.width * .45;
         this.player1.y = app.screen.height * .5;
         this.playerContainer1.addChild(this.player1);
-        this.player2 = new PIXI.Sprite(pixi_js_1.Texture.from("antpurple"));
+        this.player2 = new PIXI.Sprite(pixi_js_1.Texture.from("player2"));
         this.player2.anchor.set(.5, .5);
         this.player2.x = app.screen.width * .55;
         this.player2.y = app.screen.height * .5;
@@ -43492,7 +43496,9 @@ var GameScreen = /** @class */ (function () {
      * @param b player 2 position
      */
     GameScreen.prototype.getAngle = function (a, b) {
-        return Math.atan2((b.y - a.y), (b.x - a.x));
+        var disX = b.x - a.x;
+        var disY = b.y - a.y;
+        return Math.atan2(disY, disX);
     };
     /**
      * returns the points where the split line intersects the side of the screen, in the order top,right,bottom,left
@@ -43536,7 +43542,6 @@ var GameScreen = /** @class */ (function () {
             this.splitLineGraphic.lineTo(bottom.x, bottom.y);
         }
     };
-    ;
     /**
      * draws a mask around the player 2
      * @param splitPoints points where the split line intersects the side of the screen, in the order top,right,bottom,left
@@ -43587,7 +43592,7 @@ var GameScreen = /** @class */ (function () {
     /**
      * This function returns the point where two lines intersect
      * returns null if no intersection found
-     * Full credit to: http://jsfiddle.net/justin_c_rounds/Gd2S2/light/
+     * full credit to: http://jsfiddle.net/justin_c_rounds/Gd2S2/light/
      *
      * @param line1StartX line 1 start x
      * @param line1StartY line 1 start y
@@ -43632,6 +43637,13 @@ exports.GameScreen = GameScreen;
 Object.defineProperty(exports, "__esModule", { value: true });
 var Keyboard_1 = __webpack_require__(196);
 var PlayerMovementControl = /** @class */ (function () {
+    /**
+     * little class to control the movement of a character and add movement boundaries
+     * @param app pixi application - used for the gameLoop
+     * @param player - sprite of the player
+     * @param mapRect - player movement boundaries
+     * @param keys - the keys used to control the character in the order of top-right-down-left
+     */
     function PlayerMovementControl(app, player, mapRect, keys) {
         if (keys === void 0) { keys = ["W", "D", "S", "A"]; }
         this.app = app;
@@ -43646,6 +43658,9 @@ var PlayerMovementControl = /** @class */ (function () {
         //calling gameLoop from the GameScreen for more control
         //app.ticker.add(delta => this.gameLoop(delta));
     }
+    /**
+     * adds the character keyboard controls to the keyboard listener
+     */
     PlayerMovementControl.prototype.createKeyboardEvents = function (keys) {
         var _this = this;
         if (keys === void 0) { keys = ["W", "D", "S", "A"]; }
@@ -43666,6 +43681,10 @@ var PlayerMovementControl = /** @class */ (function () {
             _this.velocityX = -_this.speed;
         };
     };
+    /**
+     * updates player velocity and makes sure it doesn't exceed the boundaries
+     * @param delta delta time
+     */
     PlayerMovementControl.prototype.gameLoop = function (delta) {
         if (this.velocityY != 0 && this.keyTop.isUp && this.keyDown.isUp) {
             this.velocityY *= this.drag;
@@ -43699,6 +43718,9 @@ var PlayerMovementControl = /** @class */ (function () {
         this.player.x = newPlayerX;
         this.player.y = newPlayerY;
     };
+    /**
+     * returns the players position on the map
+     */
     PlayerMovementControl.prototype.getPlayerPosition = function () {
         return new PIXI.Point(this.player.x, this.player.y);
     };
@@ -43721,20 +43743,33 @@ var Key = /** @class */ (function () {
 }());
 exports.Key = Key;
 var Keyboard = /** @class */ (function () {
+    /**
+     * small class to abstract the use of keyboard inputs
+     */
     function Keyboard() {
         this.keyList = [];
         this.addEventListeners();
     }
+    /**
+     * creates listeners for when keyboard keys are pressed and released
+     */
     Keyboard.prototype.addEventListeners = function () {
         this.downHandler = this.downHandler.bind(this);
         this.upHandler = this.upHandler.bind(this);
         window.addEventListener("keydown", this.downHandler, false);
         window.addEventListener("keyup", this.upHandler, false);
     };
+    /**
+     * removes event listeners
+     */
     Keyboard.prototype.removeEventListeners = function () {
         window.removeEventListener("keydown", this.downHandler);
         window.removeEventListener("keyup", this.upHandler);
     };
+    /**
+     * add a keyboard button to listen out for, e.g "W" or "ArrowRight"
+     * @param value key value
+     */
     Keyboard.prototype.addKey = function (value) {
         var key = new Key();
         key.value = value;
@@ -43745,13 +43780,20 @@ var Keyboard = /** @class */ (function () {
         this.keyList.push(key);
         return key;
     };
+    /**
+     * removes a key from the listeners
+     * @param value the key to remove
+     */
     Keyboard.prototype.removeKey = function (value) {
         var index = this.keyList.indexOf(value);
         if (index !== -1) {
             this.keyList.splice(index, 1);
         }
     };
-    //The `downHandler`
+    /**
+     * fires when any keyboard key is pressed, it checks if the key pressed is in the list and sets the appropriate flags
+     * @param event default pixi keyboard event
+     */
     Keyboard.prototype.downHandler = function (event) {
         for (var i = 0; i < this.keyList.length; i++) {
             var key = this.keyList[i];
@@ -43766,7 +43808,10 @@ var Keyboard = /** @class */ (function () {
         }
     };
     ;
-    //The `upHandler`
+    /**
+     * fires when any keyboard key is released, it checks if the key pressed is in the list and sets the appropriate flags
+     * @param event default pixi keyboard event
+     */
     Keyboard.prototype.upHandler = function (event) {
         for (var i = 0; i < this.keyList.length; i++) {
             var key = this.keyList[i];
