@@ -272,7 +272,7 @@ export class GameScreen {
         let splitEndX:number = -Math.sin(angle) * 1000 + midpoint.x;
         let splitEndY:number = Math.cos(angle) * 1000 + midpoint.y;
         
-        //fined where the line intersects the side of the screen, it should only fined two valid points top-bottom or left-right
+        //find where the line intersects the side of the screen, it should only fined two valid points top-bottom or left-right
         let top:PIXI.Point = this.getLineIntersection(splitStartX, splitStartY, splitEndX, splitEndY, 0, 0, this.app.screen.width, 0);
         let right:PIXI.Point = this.getLineIntersection(splitStartX, splitStartY, splitEndX, splitEndY, this.app.screen.width, 0, this.app.screen.width, this.app.screen.height);
         let bottom:PIXI.Point = this.getLineIntersection(splitStartX, splitStartY, splitEndX, splitEndY, 0, this.app.screen.height, this.app.screen.width, this.app.screen.height);
@@ -340,6 +340,7 @@ export class GameScreen {
         }
         
         this.mapContainer2Mask.clear();
+        this.mapContainer2Mask.beginFill(0xFF3300);
         this.mapContainer2Mask.moveTo(cornerpt1.x,cornerpt1.y);
         if(top) this.mapContainer2Mask.lineTo(top.x,top.y);
         if(bottom) this.mapContainer2Mask.lineTo(bottom.x,bottom.y);
@@ -347,6 +348,7 @@ export class GameScreen {
         if(right) this.mapContainer2Mask.lineTo(right.x,right.y);
         this.mapContainer2Mask.lineTo(cornerpt2.x,cornerpt2.y);
         this.mapContainer2Mask.lineTo(cornerpt1.x,cornerpt1.y);
+        this.mapContainer2Mask.endFill();  
     };
 
 
