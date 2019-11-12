@@ -6,7 +6,7 @@ export class LoadingScreen{
      * @param callback the function to call when the loading is complete
      */
     constructor(private app, private callback:Function){
-        PIXI.loader
+        PIXI.Loader.shared
             .add("player1", "assets/player1.png")
             .add("player2", "assets/player2.png")
             .add("field", "assets/field.png")
@@ -14,11 +14,11 @@ export class LoadingScreen{
             .once("load", this.handleLoadComplete.bind(this))
             .once("error", this.handleLoadError.bind(this));
 
-        PIXI.loader.load()
+        PIXI.Loader.shared.load()
     }
 
     private handleLoadProgress() {
-        console.log(PIXI.loader.progress + "% loaded");
+        console.log(PIXI.Loader.shared.progress + "% loaded");
     }
 
     private handleLoadError() {
@@ -26,7 +26,7 @@ export class LoadingScreen{
     }
 
     private handleLoadComplete() {
-        PIXI.loader.removeAllListeners();
+        PIXI.Loader.shared.removeAllListeners();
 
         setTimeout(() => {
             this.callback();

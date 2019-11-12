@@ -1,17 +1,17 @@
-import { Application}  from 'pixi.js'
+import * as PIXI from 'pixi.js';
 import { LoadingScreen } from './LoadingScreen';
 import { GameScreen } from './GameScreen';
 
 
 export class GameBoot{
-    private app:Application;
+    private app:PIXI.Application;
 
     /**
      * entrance point into the game code
      * creates the pixi instance, starts the loading screen, on complete start the game screen
      */
     constructor(){
-        this.app = new Application({ width:window.innerWidth, height:window.innerHeight });
+        this.app = new PIXI.Application({ width:window.innerWidth, height:window.innerHeight });
 
         document.body.appendChild(this.app.view);
 
@@ -30,3 +30,5 @@ export class GameBoot{
 window.onload = function () {
     new GameBoot();
 }
+
+window.PIXI = PIXI;
