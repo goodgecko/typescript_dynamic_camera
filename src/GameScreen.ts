@@ -166,7 +166,7 @@ export class GameScreen {
             let splitOffset2:PIXI.Point = new Point(splitMapPos2.x - newMapPos2.x , splitMapPos2.y - newMapPos2.y);
             
             //this gives us a 0-1 for the stretchPercentage between 1 and 1.5 
-            let tension:number = Math.min(stretchPercentage-1, .5)*2;
+            let tension:number = this.getPercentageFromRange( 1, 1.5, stretchPercentage);
 
             //since we have calculated the tension, we might as well alpha the middle line 
             this.splitLineGraphic.alpha = tension;
@@ -226,6 +226,19 @@ export class GameScreen {
         this.mapContainer2.y = newMapPos2.y;
         this.playerContainer2.x = newMapPos2.x;
         this.playerContainer2.y = newMapPos2.y;
+    }
+    
+    
+
+    /**
+     * returns the percentage 0 - 1 of a number within a range
+     * @param min range minimum
+     * @param max range maximum
+     * @param num the number within the range
+     */
+    private getPercentageFromRange(min:number, max:number, num:number): number{
+        let range:number = max - min;
+        return Math.min( num - min, range ) * ( 1 / range );
     }
     
     

@@ -45905,7 +45905,7 @@ var GameScreen = /** @class */ (function () {
             var splitOffset1 = new pixi_js_1.Point(splitMapPos1.x - newMapPos1.x, splitMapPos1.y - newMapPos1.y);
             var splitOffset2 = new pixi_js_1.Point(splitMapPos2.x - newMapPos2.x, splitMapPos2.y - newMapPos2.y);
             //this gives us a 0-1 for the stretchPercentage between 1 and 1.5 
-            var tension = Math.min(stretchPercentage - 1, .5) * 2;
+            var tension = this.getPercentageFromRange(1, 1.5, stretchPercentage);
             //since we have calculated the tension, we might as well alpha the middle line 
             this.splitLineGraphic.alpha = tension;
             //both maps always want to be in the center point between the two players
@@ -45956,6 +45956,16 @@ var GameScreen = /** @class */ (function () {
         this.mapContainer2.y = newMapPos2.y;
         this.playerContainer2.x = newMapPos2.x;
         this.playerContainer2.y = newMapPos2.y;
+    };
+    /**
+     * returns the percentage 0 - 1 of a number within a range
+     * @param min range minimum
+     * @param max range maximum
+     * @param num the number within the range
+     */
+    GameScreen.prototype.getPercentageFromRange = function (min, max, num) {
+        var range = max - min;
+        return Math.min(num - min, range) * (1 / range);
     };
     /**
      * returns the distance between two provided points
