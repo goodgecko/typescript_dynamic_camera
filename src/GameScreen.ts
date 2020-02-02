@@ -24,8 +24,8 @@ export class GameScreen {
     
     private stretchDisance:PIXI.Point;
 
-    private player1SplitDistFromCentre:number;
-    private player2SplitDistFromCentre:number;
+    private player1SplitDistFromCenter:number;
+    private player2SplitDistFromCenter:number;
 
     private lineWidth:number = 10;
     private lineColor:number = 0xFF0000;
@@ -108,18 +108,18 @@ export class GameScreen {
         this.playerMoveController1.gameLoop(delta);
         this.playerMoveController2.gameLoop(delta);
 
-        //find each players position relative to their map, then find the centre point between both players
+        //find each players position relative to their map, then find the center point between both players
         let player1Local:PIXI.Point = this.playerMoveController1.getPlayerPosition();
         let player2Local:PIXI.Point = this.playerMoveController2.getPlayerPosition();
-        let playersCentre:PIXI.Point = new PIXI.Point((player1Local.x + player2Local.x) * .5,  (player1Local.y + player2Local.y) * .5); 
+        let playersCenter:PIXI.Point = new PIXI.Point((player1Local.x + player2Local.x) * .5,  (player1Local.y + player2Local.y) * .5); 
         
-        let screenCentre:PIXI.Point = new PIXI.Point(this.app.screen.width * .5, this.app.screen.height * .5);        
+        let screenCenter:PIXI.Point = new PIXI.Point(this.app.screen.width * .5, this.app.screen.height * .5);        
         
         //by default both maps want to focused on the point between both players
         //the maps are anchored to the top left
-        //so minus playerCentre would put the playerCentre in the top left of screen + half the screen width / height to focues the playerCentre in the centre of the screen
-        let newMapPos1:PIXI.Point = new Point(-playersCentre.x + screenCentre.x, -playersCentre.y + screenCentre.y);
-        let newMapPos2:PIXI.Point = new Point(-playersCentre.x + screenCentre.x, -playersCentre.y + screenCentre.y);
+        //so minus playerCenter would put the playerCenter in the top left of screen + half the screen width / height to focues the playerCenter in the center of the screen
+        let newMapPos1:PIXI.Point = new Point(-playersCenter.x + screenCenter.x, -playersCenter.y + screenCenter.y);
+        let newMapPos2:PIXI.Point = new Point(-playersCenter.x + screenCenter.x, -playersCenter.y + screenCenter.y);
 
 
         //we need to find how far the players are from each other, this will be calculated as a percentage relative to the stretchDisance
@@ -135,32 +135,32 @@ export class GameScreen {
             this.screenSplit = false;
         }else if(stretchPercentage > 1){
             if(this.screenSplit == false){
-                //when the screen splits we want to try and pivot both players roughly around the same distance from the centre of the screen as when they first split 
+                //when the screen splits we want to try and pivot both players roughly around the same distance from the center of the screen as when they first split 
                 let player1Global:PIXI.Point =  new PIXI.Point(this.player1.getGlobalPosition().x, this.player1.getGlobalPosition().y);
                 let player2Global:PIXI.Point =  new PIXI.Point(this.player2.getGlobalPosition().x, this.player2.getGlobalPosition().y);
-                this.player1SplitDistFromCentre = this.getDistance(player1Global,screenCentre);
-                this.player2SplitDistFromCentre = this.getDistance(player2Global,screenCentre);
+                this.player1SplitDistFromCenter = this.getDistance(player1Global,screenCenter);
+                this.player2SplitDistFromCenter = this.getDistance(player2Global,screenCenter);
 
                 this.screenSplit = true;
             }
 
             let playerAngle:number = this.getAngle(player1Local, player2Local);
 
-            //we want boths players to pivot around the centre of the screen reletive to the angle between them
+            //we want boths players to pivot around the center of the screen reletive to the angle between them
             //with a little bit of maths we can get where on the screen each player should be
-            let player1FromCentreX:number = -Math.cos(playerAngle) * (this.player1SplitDistFromCentre)+ screenCentre.x;
-            let player1FromCentreY:number = -Math.sin(playerAngle) * (this.player1SplitDistFromCentre)+ screenCentre.y;
-            let player2FromCentreX:number = Math.cos(playerAngle) * (this.player2SplitDistFromCentre)+ screenCentre.x;
-            let player2FromCentreY:number = Math.sin(playerAngle) * (this.player2SplitDistFromCentre)+ screenCentre.y;
+            let player1FromCenterX:number = -Math.cos(playerAngle) * (this.player1SplitDistFromCenter)+ screenCenter.x;
+            let player1FromCenterY:number = -Math.sin(playerAngle) * (this.player1SplitDistFromCenter)+ screenCenter.y;
+            let player2FromCenterX:number = Math.cos(playerAngle) * (this.player2SplitDistFromCenter)+ screenCenter.x;
+            let player2FromCenterY:number = Math.sin(playerAngle) * (this.player2SplitDistFromCenter)+ screenCenter.y;
             
-            //similar to before, to focus the map of each player we want to minus the player position to put then top left + plus half the screen width height + plus their position relative to the screen centre
-            let splitMapPos1:PIXI.Point = new Point(-player1Local.x + player1FromCentreX, -player1Local.y + player1FromCentreY);
-            let splitMapPos2:PIXI.Point = new Point(-player2Local.x + player2FromCentreX, -player2Local.y + player2FromCentreY);
+            //similar to before, to focus the map of each player we want to minus the player position to put then top left + plus half the screen width height + plus their position relative to the screen center
+            let splitMapPos1:PIXI.Point = new Point(-player1Local.x + player1FromCenterX, -player1Local.y + player1FromCenterY);
+            let splitMapPos2:PIXI.Point = new Point(-player2Local.x + player2FromCenterX, -player2Local.y + player2FromCenterY);
             
             //Im not totally happy with this bit but its as good as I got
             //if we just use the split map positions they didn't line up nicely when the maps merge
             //to get around this I use 50% (1 - 1.5) of the stretch calculation to ease the maps together
-            //these offsets are the distance between the combined map centre and the split distance
+            //these offsets are the distance between the combined map center and the split distance
             //we can then use the a percentage of this offset to ease the maps together
             let splitOffset1:PIXI.Point = new Point(splitMapPos1.x - newMapPos1.x, splitMapPos1.y - newMapPos1.y);
             let splitOffset2:PIXI.Point = new Point(splitMapPos2.x - newMapPos2.x , splitMapPos2.y - newMapPos2.y);
@@ -171,7 +171,7 @@ export class GameScreen {
             //since we have calculated the tension, we might as well alpha the middle line 
             this.splitLineGraphic.alpha = tension;
 
-            //both maps always want to be in the centre point between the two players
+            //both maps always want to be in the center point between the two players
             //but between stretchPercentage 1 - 1.5 we gradually add the split offset to pull them apart
             //this allows the maps the merge and split "smoothly"
             //I'm sure someone with better maths skills could tell me a cleaner why to achieve this
@@ -266,7 +266,7 @@ export class GameScreen {
         let angle:number = this.getAngle(a,b);
         let midpoint:PIXI.Point = new PIXI.Point(this.app.screen.width * .5, this.app.screen.height * .5);
 
-        //calculates a large line between the players which always runs through the screen centre 
+        //calculates a large line between the players which always runs through the screen center 
         let splitStartX:number = Math.sin(angle) * 1000 + midpoint.x;
         let splitStartY:number = -Math.cos(angle) * 1000 + midpoint.y;
         let splitEndX:number = -Math.sin(angle) * 1000 + midpoint.x;
