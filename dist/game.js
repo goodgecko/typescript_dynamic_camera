@@ -46215,12 +46215,6 @@ exports.PlayerMovementControl = PlayerMovementControl;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Key = /** @class */ (function () {
-    function Key() {
-    }
-    return Key;
-}());
-exports.Key = Key;
 var Keyboard = /** @class */ (function () {
     /**
      * small class to abstract the use of keyboard inputs
@@ -46233,10 +46227,8 @@ var Keyboard = /** @class */ (function () {
      * creates listeners for when keyboard keys are pressed and released
      */
     Keyboard.prototype.addEventListeners = function () {
-        this.downHandler = this.downHandler.bind(this);
-        this.upHandler = this.upHandler.bind(this);
-        window.addEventListener("keydown", this.downHandler, false);
-        window.addEventListener("keyup", this.upHandler, false);
+        window.addEventListener("keydown", this.downHandler.bind(this), false);
+        window.addEventListener("keyup", this.upHandler.bind(this), false);
     };
     /**
      * removes event listeners
@@ -46247,24 +46239,29 @@ var Keyboard = /** @class */ (function () {
     };
     /**
      * add a keyboard button to listen out for, e.g "W" or "ArrowRight"
-     * @param value key value
+     * @param keyID key keyID
+     * @param pressed function to call on key press
+     * @param released function to call on key release
      */
-    Keyboard.prototype.addKey = function (value) {
-        var key = new Key();
-        key.value = value;
-        key.isDown = false;
-        key.isUp = true;
-        key.press = undefined;
-        key.release = undefined;
+    Keyboard.prototype.addKey = function (keyID, pressed, released) {
+        if (pressed === void 0) { pressed = undefined; }
+        if (released === void 0) { released = undefined; }
+        var key = {
+            keyID: keyID,
+            isDown: false,
+            isUp: true,
+            press: pressed,
+            release: released
+        };
         this.keyList.push(key);
         return key;
     };
     /**
      * removes a key from the listeners
-     * @param value the key to remove
+     * @param keyID the key to remove
      */
-    Keyboard.prototype.removeKey = function (value) {
-        var index = this.keyList.indexOf(value);
+    Keyboard.prototype.removeKey = function (keyID) {
+        var index = this.keyList.indexOf(keyID);
         if (index !== -1) {
             this.keyList.splice(index, 1);
         }
@@ -46276,7 +46273,7 @@ var Keyboard = /** @class */ (function () {
     Keyboard.prototype.downHandler = function (event) {
         for (var i = 0; i < this.keyList.length; i++) {
             var key = this.keyList[i];
-            if (event.key === key.value) {
+            if (event.key === key.keyID) {
                 if (key.isUp && key.press)
                     key.press();
                 key.isDown = true;
@@ -46294,7 +46291,7 @@ var Keyboard = /** @class */ (function () {
     Keyboard.prototype.upHandler = function (event) {
         for (var i = 0; i < this.keyList.length; i++) {
             var key = this.keyList[i];
-            if (event.key === key.value) {
+            if (event.key === key.keyID) {
                 if (key.isDown && key.release)
                     key.release();
                 key.isDown = false;
