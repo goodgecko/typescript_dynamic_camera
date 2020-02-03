@@ -4,11 +4,11 @@ Make sure you install the latest version of **[https://node.js](https://nodejs.o
 
 Github repositories do not include the "node_module" dependancy folders, so in the Terminal run:
 
-**npm i**   
+    npm i   
 
 And then to build the game.js, in the Terminal run:
 
-**npm run build**
+    npm run build
 
 Webpack will then compile the Typescript into Javascript and bundle all the files into a single dist/game.js  
 
@@ -16,11 +16,11 @@ Webpack will then compile the Typescript into Javascript and bundle all the file
 
 In the Terminal run:
 
-**cd dist**
+    cd dist
 
 Your Terminal is pointing to the dist/ folder you can run:
 
-**http-server**
+    http-server
 
 Copy the link provided in the Terminal, in my case its: [http://127.0.0.1:8080](http://127.0.0.1:8080)  
 
@@ -47,14 +47,14 @@ Hopefully your game will load. If not, check the Chrome debugger, chances are it
 
 
 
-## Intro
+## <a id="intro"></a>Intro
 
 The Lego games are one some of my favourite local co-op to. I particularly like the dynamic split screen feature, when the two players get to a certain distance the camera splits and follow the players independently. I have been curious how this works and have been trying to replicate this in PixiJS. This implementation is by no means perfect, I’m not a mathematician but I do enjoy tinkering with code. If you know a better way please let me know, I’ll update the tutorial and everyone wins.  
 ![](_raw/field7.png)
 
 
 
-## Overview
+## <a id="overview"></a>Overview
 
 - Two identical maps, one for each player.  
 - Both Player sprites are added to a layer above both maps.  
@@ -65,13 +65,13 @@ The Lego games are one some of my favourite local co-op to. I particularly like 
 
 
 
-## Player Movement
+## <a id="player_movement"></a>Player Movement
 
 To stay focused I have written a seperate tutorial on player and camera movement, I will extend this concept and abstract the player controls so we can focus on the split screen. If you are new to Pixi or curious how that works, check it out here: [https://github.com/goodgecko/pixi-player-controls](pixi-player-controls.html)
 
 
 
-## Map Sync
+## <a id="map_sync"></a>Map Sync
 
 When both players are close together Map 2 overlays Map 1\. The map position is calculated by the center point between both players. ![](_raw/fieldExplain.png)
 
@@ -89,7 +89,7 @@ We want the player's center point to always be in the middle of the screen excep
 
 
 
-## Player Distance
+## <a id="player_distance"></a>Player Distance
 
 We then calculate the distance x and distance y between both players and devide that by the designated stretch distance:
 
@@ -106,7 +106,7 @@ We then calculate the distance x and distance y between both players and devide 
 
 
 
-## Map Split
+## <a id="map_split"></a>Map Split
 
 When the map first splits ( on the first instance of stretchPercentage > 1 ) we want to lock players roughly at the same distance from the center of the screen for the remainer of the split.
 
@@ -166,7 +166,7 @@ I think of this next step as both maps what to be in the central position betwee
 
 
 
-## Calculate Split Line
+## <a id="split_line"></a>Calculate Split Line
 
 Calculate the perpendicular angle between the players and drawing a virtual line that we can guarantee to be larger than the screen. In any direction: ![](_raw/angleExplain.png) Then offset the line so it passes through the center of the screen. ![](_raw/angleExplain2.png)
 
@@ -223,7 +223,7 @@ Then check if this virtual line intercepts the boundary of the screen. This is t
 
 
 
-## Draw Line
+## <a id="draw_line"></a>Draw Line
 
 Now we have the four potential points (top,right,bottom,left) from the 'calcSplitPoints' function we can draw a line based on the top-bottom or left right values. As we had a tension 0-1 it also made sense to add this as an alpha to the line.
 
@@ -250,7 +250,7 @@ Now we have the four potential points (top,right,bottom,left) from the 'calcSpli
 
 
 
-## Draw Mask
+## <a id="draw_mask"></a>Draw Mask
 
 The mask is a little more difficult because we need to calculate the shape around player 2\. But with the player screen positions and a bit more maths we can find which corner points we should use and draw the mask shape, revealing map 1. ![](_raw/maskExplain.png)
 
