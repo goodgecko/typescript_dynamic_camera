@@ -66,14 +66,28 @@ export class GameScreen {
         this.player1.y = app.screen.height * .5;
         this.playerContainer1.addChild(this.player1);
 
+        let playerArrow1:PIXI.Sprite = new PIXI.Sprite(Texture.from("playerArrow1"));
+        playerArrow1.width = this.app.screen.width * .2;
+        playerArrow1.scale.y = playerArrow1.scale.x;
+        playerArrow1.x = 20;
+        playerArrow1.y = this.app.screen.height - playerArrow1.height - 20;
+        app.stage.addChild(playerArrow1);
+
         this.player2 = new PIXI.Sprite(Texture.from("player2"));
         this.player2.anchor.set(.5, .5);
         this.player2.x = app.screen.width * .65;
         this.player2.y = app.screen.height * .5;
         this.playerContainer2.addChild(this.player2);
+        
+        let playerArrow2:PIXI.Sprite = new PIXI.Sprite(Texture.from("playerArrow2"));
+        playerArrow2.width = this.app.screen.width * .2;
+        playerArrow2.scale.y = playerArrow2.scale.x;
+        playerArrow2.x = this.app.screen.width - playerArrow2.width - 20;
+        playerArrow2.y = this.app.screen.height - playerArrow2.height - 20;
+        this.app.stage.addChild(playerArrow2);
 
-        this.playerMoveController1 = new PlayerMovementControl(this.app, this.player1, new PIXI.Rectangle(0,0,this.mapWidth, this.mapHeight), ["w","d","s","a"]);
-        this.playerMoveController2 = new PlayerMovementControl(this.app, this.player2, new PIXI.Rectangle(0,0,this.mapWidth, this.mapHeight), ["ArrowUp","ArrowRight","ArrowDown","ArrowLeft"]);
+        this.playerMoveController1 = new PlayerMovementControl(this.app, this.player1, new PIXI.Rectangle(0,0,this.mapWidth, this.mapHeight), ["w","d","s","a"], playerArrow1);
+        this.playerMoveController2 = new PlayerMovementControl(this.app, this.player2, new PIXI.Rectangle(0,0,this.mapWidth, this.mapHeight), ["ArrowUp","ArrowRight","ArrowDown","ArrowLeft"], playerArrow2);
 
         this.splitLineGraphic = new PIXI.Graphics();
         this.app.stage.addChild(this.splitLineGraphic);

@@ -45761,6 +45761,8 @@ var LoadingScreen = /** @class */ (function () {
         PIXI.Loader.shared
             .add("player1", "assets/player1.png")
             .add("player2", "assets/player2.png")
+            .add("playerArrow1", "assets/letters.png")
+            .add("playerArrow2", "assets/arrows.png")
             .add("field", "assets/field.png")
             .on("progress", this.handleLoadProgress.bind(this))
             .once("load", this.handleLoadComplete.bind(this))
@@ -45829,13 +45831,25 @@ var GameScreen = /** @class */ (function () {
         this.player1.x = app.screen.width * .35;
         this.player1.y = app.screen.height * .5;
         this.playerContainer1.addChild(this.player1);
+        var playerArrow1 = new PIXI.Sprite(pixi_js_1.Texture.from("playerArrow1"));
+        playerArrow1.width = this.app.screen.width * .2;
+        playerArrow1.scale.y = playerArrow1.scale.x;
+        playerArrow1.x = 20;
+        playerArrow1.y = this.app.screen.height - playerArrow1.height - 20;
+        app.stage.addChild(playerArrow1);
         this.player2 = new PIXI.Sprite(pixi_js_1.Texture.from("player2"));
         this.player2.anchor.set(.5, .5);
         this.player2.x = app.screen.width * .65;
         this.player2.y = app.screen.height * .5;
         this.playerContainer2.addChild(this.player2);
-        this.playerMoveController1 = new PlayerMovementControl_1.PlayerMovementControl(this.app, this.player1, new PIXI.Rectangle(0, 0, this.mapWidth, this.mapHeight), ["w", "d", "s", "a"]);
-        this.playerMoveController2 = new PlayerMovementControl_1.PlayerMovementControl(this.app, this.player2, new PIXI.Rectangle(0, 0, this.mapWidth, this.mapHeight), ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"]);
+        var playerArrow2 = new PIXI.Sprite(pixi_js_1.Texture.from("playerArrow2"));
+        playerArrow2.width = this.app.screen.width * .2;
+        playerArrow2.scale.y = playerArrow2.scale.x;
+        playerArrow2.x = this.app.screen.width - playerArrow2.width - 20;
+        playerArrow2.y = this.app.screen.height - playerArrow2.height - 20;
+        this.app.stage.addChild(playerArrow2);
+        this.playerMoveController1 = new PlayerMovementControl_1.PlayerMovementControl(this.app, this.player1, new PIXI.Rectangle(0, 0, this.mapWidth, this.mapHeight), ["w", "d", "s", "a"], playerArrow1);
+        this.playerMoveController2 = new PlayerMovementControl_1.PlayerMovementControl(this.app, this.player2, new PIXI.Rectangle(0, 0, this.mapWidth, this.mapHeight), ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"], playerArrow2);
         this.splitLineGraphic = new PIXI.Graphics();
         this.app.stage.addChild(this.splitLineGraphic);
         this.mapContainer2Mask = new PIXI.Graphics();
@@ -46140,11 +46154,12 @@ var PlayerMovementControl = /** @class */ (function () {
      * @param mapRect - player movement boundaries
      * @param keys - the keys used to control the character in the order of top-right-down-left
      */
-    function PlayerMovementControl(app, player, mapRect, keys) {
+    function PlayerMovementControl(app, player, mapRect, keys, demoKeys) {
         if (keys === void 0) { keys = ["W", "D", "S", "A"]; }
         this.app = app;
         this.player = player;
         this.mapRect = mapRect;
+        this.demoKeys = demoKeys;
         this.keyManager = new Keyboard_1.Keyboard();
         this.velocityX = 0;
         this.velocityY = 0;
@@ -46210,6 +46225,10 @@ var PlayerMovementControl = /** @class */ (function () {
         }
         if (this.player.x != newPlayerX || this.player.y != newPlayerY) {
             this.player.rotation = Math.atan2(newPlayerY - this.player.y, newPlayerX - this.player.x);
+        }
+        //reduce the alpha of the demo keys
+        if (this.demoKeys.alpha > 0 && (this.velocityY + this.velocityX) != 0) {
+            this.demoKeys.alpha -= .05;
         }
         this.player.x = newPlayerX;
         this.player.y = newPlayerY;
