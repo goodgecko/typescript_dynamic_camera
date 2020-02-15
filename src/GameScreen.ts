@@ -62,13 +62,13 @@ export class GameScreen {
         //create player sprites and add them to their relevant containers
         this.player1 = new PIXI.Sprite(Texture.from("player1"));
         this.player1.anchor.set(.5, .5);
-        this.player1.x = app.screen.width * .45;
+        this.player1.x = app.screen.width * .35;
         this.player1.y = app.screen.height * .5;
         this.playerContainer1.addChild(this.player1);
 
         this.player2 = new PIXI.Sprite(Texture.from("player2"));
         this.player2.anchor.set(.5, .5);
-        this.player2.x = app.screen.width * .55;
+        this.player2.x = app.screen.width * .65;
         this.player2.y = app.screen.height * .5;
         this.playerContainer2.addChild(this.player2);
 
@@ -84,6 +84,10 @@ export class GameScreen {
 
 
         app.ticker.add(delta => this.gameLoop(delta));
+
+
+        window.addEventListener('resize', this.resize.bind(this));
+        this.resize();
     }
 
     /**
@@ -401,5 +405,12 @@ export class GameScreen {
         }
 
         return null;
+    }
+
+    // Resize function window
+    private resize() {
+        this.app.renderer.resize(window.innerWidth, window.innerHeight);
+
+        this.stretchDisance = new PIXI.Point(this.app.screen.width * .5, this.app.screen.height * .4);
     }
 }

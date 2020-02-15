@@ -45826,12 +45826,12 @@ var GameScreen = /** @class */ (function () {
         //create player sprites and add them to their relevant containers
         this.player1 = new PIXI.Sprite(pixi_js_1.Texture.from("player1"));
         this.player1.anchor.set(.5, .5);
-        this.player1.x = app.screen.width * .45;
+        this.player1.x = app.screen.width * .35;
         this.player1.y = app.screen.height * .5;
         this.playerContainer1.addChild(this.player1);
         this.player2 = new PIXI.Sprite(pixi_js_1.Texture.from("player2"));
         this.player2.anchor.set(.5, .5);
-        this.player2.x = app.screen.width * .55;
+        this.player2.x = app.screen.width * .65;
         this.player2.y = app.screen.height * .5;
         this.playerContainer2.addChild(this.player2);
         this.playerMoveController1 = new PlayerMovementControl_1.PlayerMovementControl(this.app, this.player1, new PIXI.Rectangle(0, 0, this.mapWidth, this.mapHeight), ["w", "d", "s", "a"]);
@@ -45842,6 +45842,8 @@ var GameScreen = /** @class */ (function () {
         this.mapContainer2.mask = this.mapContainer2Mask;
         this.app.stage.addChild(this.mapContainer2Mask);
         app.ticker.add(function (delta) { return _this.gameLoop(delta); });
+        window.addEventListener('resize', this.resize.bind(this));
+        this.resize();
     }
     /**
      * creates the map, we need two maps one for each both player
@@ -46111,6 +46113,11 @@ var GameScreen = /** @class */ (function () {
             return result;
         }
         return null;
+    };
+    // Resize function window
+    GameScreen.prototype.resize = function () {
+        this.app.renderer.resize(window.innerWidth, window.innerHeight);
+        this.stretchDisance = new PIXI.Point(this.app.screen.width * .5, this.app.screen.height * .4);
     };
     return GameScreen;
 }());
