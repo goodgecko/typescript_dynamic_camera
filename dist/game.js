@@ -45827,8 +45827,9 @@ var GameScreen = /** @class */ (function () {
         this.app.stage.addChild(this.playerContainer2);
         //create player sprites and add them to their relevant containers
         this.player1 = new PIXI.Sprite(pixi_js_1.Texture.from("player1"));
+        this.player1.width = this.player1.height = this.app.screen.height * .2;
         this.player1.anchor.set(.5, .5);
-        this.player1.x = app.screen.width * .35;
+        this.player1.x = app.screen.width * .33;
         this.player1.y = app.screen.height * .5;
         this.playerContainer1.addChild(this.player1);
         var playerArrow1 = new PIXI.Sprite(pixi_js_1.Texture.from("playerArrow1"));
@@ -45838,8 +45839,9 @@ var GameScreen = /** @class */ (function () {
         playerArrow1.y = this.app.screen.height - playerArrow1.height - 20;
         app.stage.addChild(playerArrow1);
         this.player2 = new PIXI.Sprite(pixi_js_1.Texture.from("player2"));
+        this.player2.width = this.player2.height = this.app.screen.height * .2;
         this.player2.anchor.set(.5, .5);
-        this.player2.x = app.screen.width * .65;
+        this.player2.x = app.screen.width * .70;
         this.player2.y = app.screen.height * .5;
         this.playerContainer2.addChild(this.player2);
         var playerArrow2 = new PIXI.Sprite(pixi_js_1.Texture.from("playerArrow2"));
